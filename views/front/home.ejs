@@ -1,0 +1,62 @@
+
+<%- include('../front/header.ejs') %>
+    
+    
+<section class="banner">
+	<div class="banner-box">
+		<div class="carousel slide" data-bs-ride="carousel" id="services">
+
+			<div class="carousel-indicators slider-indicators">
+				<button type="button" data-bs-target="#services" data-bs-slide-to="0" class="active"></button>
+				<button type="button" data-bs-target="#services" data-bs-slide-to="1" class="active"></button>
+				<button type="button" data-bs-target="#services" data-bs-slide-to="2" class="active"></button>
+			</div><!--carousel-indicators end-->
+  
+			<div class="carousel-inner">
+				<div class="carousel-item active" data-bs-interval="2000">
+					<img src="/assets/images/img3.jpg" class="services-img">
+				</div>0<!--carousel-item end--> 
+  
+				<div class="carousel-item" data-bs-interval="2000">
+					<img src="/assets/images/beckdev.jpg" class="services-img">
+				</div>1<!--carousel-item end--> 
+  
+				<div class="carousel-item" data-bs-interval="2000">
+					<img src="/assets/images/fashion.jpeg" class="services-img">
+				</div>2<!--carousel-item end--> 
+			</div><!--carousel-inner end-->
+
+			<a class="carousel-control-prev" type="button" data-bs-target="#services" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+  
+			<a class="carousel-control-next" type="button" data-bs-target="#services" data-bs-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div> <!--carousel slide end-->
+	</div> <!-- banner box end-->
+</section>
+
+
+    <section class="featured-blog mtb-40">
+    	<div class="container">
+    		<div class="row">
+
+				<% d.forEach((item)=>{ %>
+
+    			<div class="col-md-4">
+    				<div class="blog-box">
+    					<img src="<%= item.image.url %>" height="290" width="235" alt="blog1" />
+    					<h3><%= item.title %></h3>
+    					<p><%= item.createdAt.toLocaleDateString() %></p>
+    					<p><%= item.description.slice(0,90) %></p>
+    					<a href="/blogdetail/<%= item._id %>" class="btn btn-danger">Read more...</a>
+    				</div>
+    			</div>
+
+				<% }) %> <!-- for each loop end -->
+    		</div>
+    	</div>
+    </section>
+    
+<%- include('../front/footer.ejs') %>

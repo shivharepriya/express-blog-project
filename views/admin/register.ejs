@@ -1,0 +1,39 @@
+<%- include('../front/header.ejs') %>
+
+<section class="login-wrap mtb-40">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-box">
+                    <h1>Administrator Register</h1>
+                    <% if(message.length > 0){ %>
+                        <div class="alert alert-danger">
+                            <%= message %>
+                        </div>
+                    <% } %>
+                    <form action="/register" method="post">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="myInput" name="password" class="form-control" placeholder="Password">
+                            <input type="checkbox" onclick="myFunction()">Show Password
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="myInput" name="confirm_password" class="form-control" placeholder="Confirm Password">
+                            <input type="checkbox" onclick="myFunction()">Show Password
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>         
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../front/footer.ejs') %>
