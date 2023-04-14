@@ -1,59 +1,79 @@
 <%- include('../../front/header.ejs') %>
 
-<section class="dashboard-wrap mtb-40">
-    <div class="container">
-        <div class="body-content">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="dash-left">
-                        <ul>
-                            <li class="active"><a href="/admin/dashboard" class="active">Dashboard</a></li>
-                            <li><a href="/admin/categorydisplay">Catalogue Blogs</a></li>
-                            <li><a href="/logout">Logout</a></li>
-                        </ul>
-                    </div>   
-                </div>
-                <div class="col-md-9">
-                    <div class="dash-right">
-                        <div class="dash-header">
-                            <div class="dash-title">
-                                <h1> Catalogue Blogs</h1>
+    <section class="dashboard-wrap mtb-40">
+        <div class="container">
+            <div class="body-content">
+                <div class="row">
+                    <div class="col-md-3 mb-5">
+                        <div class="dash-left">
+                            <ul>
+                                <li class="active"><a href="/admin/dashboard" class="active">Dashboard</a></li>
+                                <li><a href="/admin/categorydisplay">Catalogue Blogs</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="dash-right">
+                            <div class="dash-header">
+                                <div class="dash-title">
+                                    <h1 class="fs-4"> Catalogue Blogs</h1>
+                                </div>
+                                <div class="dash-nav">
+                                    <a href="/admin/createcategory" class="btn btn-success">Add Category</a>
+                                </div>
                             </div>
-                            <div class="dash-nav">
-                                <a href="/admin/createcategory" class="btn btn-success">Add Category</a>
+                            <div class="table_body">
+                                <table class="justify-content-center table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No.</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% var i=1 %>
+                                            <% d.forEach((getItem)=>{ %>
+                                                <tr>
+                                                    <td>
+                                                        <%= i++ %>
+                                                    </td>
+                                                    <td>
+                                                        <%= getItem.title %>
+                                                    </td>
+                                                    <td>
+                                                        <%= getItem.description.slice(0,60) %>
+                                                    </td>
+                                                    <td>
+                                                        <%= getItem.name %>
+                                                    </td>
+                                                    <td>
+                                                        <%= getItem.email %>
+                                                    </td>
+                                                    <td><img src="<%= getItem.catalogueImage.url %>"></td>
+                                                    <td>
+                                                        <a href="/admin/view_catalogue/<%= getItem._id %>"
+                                                            class="btn btn-success btn-sm">View</a>
+                                                        <a href="/admin/edit_catalogue/<%= getItem._id %>"
+                                                            class="btn btn-info btn-sm">Edit</a>
+                                                        <a href="/admin/delete_catalogue/<%= getItem._id %>"
+                                                            class="btn btn-danger btn-sm">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <table class="table table-bordered table-striped">
-                            <tr>
-                                <th>#ID</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Catalogue-image</th>
-                                <th>Action</th>
-                            </tr>
-                            <% d.forEach((getItem)=>{ %>
-                                <tr>
-                                    <td><%= getItem._id %></td>
-                                    <td><%= getItem.title %></td>
-                                    <td><%= getItem.description %></td>
-                                    <td><%= getItem.name %></td>
-                                    <td><%= getItem.email %></td>
-                                    <td><img src="<%= getItem.catalogueImage.url %>"></td>
-                                    <td>
-                                        <a href="/admin/view_catalogue/<%= getItem._id %>" class="btn btn-success btn-sm">View</a>
-                                        <a href="/admin/edit_catalogue/<%= getItem._id %>" class="btn btn-info btn-sm">Edit</a>
-                                        <a href="/admin/delete_catalogue/<%= getItem._id %>" class="btn btn-danger btn-sm">Delete</a>
-                                    </td>
-                                </tr>
-                            <% }) %>
-                        </table>
-                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <%- include('../../front/footer.ejs') %>

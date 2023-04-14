@@ -7,7 +7,7 @@
       <% blogL.forEach((blogList)=>{ %>
         <div class="col-md-4">
           <div class="blog-box">
-            <img src="<%= blogList.image.url %>" height="290" width="" alt="blog1" />
+            <img src="<%= blogList.image.url %>" height="200" width="100%" alt="blog1" />
             <h3><%= blogList.title %></h3>
             <p><%= blogList.createdAt.toLocaleDateString() %></p>
             <p><%= blogList.description.slice(0,90) %></p>

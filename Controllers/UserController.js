@@ -88,7 +88,7 @@ class UserController{
     }
 
     static sendMessage = async(req,res)=>{
-        console.log(req.body)
+        // console.log(req.body)
         const {name, email, phone, message} = req.body;
        
         if(name && email && phone){

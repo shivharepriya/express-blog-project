@@ -4,7 +4,7 @@
     <div class="container">
         <div class="body-content">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 mb-5">
                     <div class="dash-left">
                         <ul>
                             <li class="active"><a href="/admin/dashboard" class="active">Dashboard</a></li>
@@ -17,33 +17,34 @@
                     <div class="dash-right">
                         <div class="dash-header">
                             <div class="dash-title">
-                                <h1>View Catalogue</h1>
+                                <h1 class="fs-3">View Catalogue</h1>
                             </div>
                             <div class="dash-nav">
                                 <a href="/admin/createcategory" class="btn btn-success">Add Category</a>
                             </div>
                         </div>
-                        <table class="table table-bordered table-striped">
-                            <tr>
-                                <th>#ID</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Image</th>
-                            </tr>
-                           
+                        <div class="table_body">
+                            <table class="table table-bordered table-striped">
                                 <tr>
-                                    <td><%= data._id %></td>
-                                    <td><%= data.title %></td>
-                                    <td><%= data.description %></td>
-                                    <td><%= data.name %></td>
-                                    <td><%= data.email %></td>
-                                    <td><img src="<%= data.catalogueImage.url %>"></td>
-                                    
+                                    <th>S.No.</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Image</th>
                                 </tr>
-                           
-                        </table>
+                               
+                                    <tr>
+                                        <% var i = 1 %>
+                                        <td><%= i++ %></td>
+                                        <td><%= data.title %></td>
+                                        <td><%= data.description  %></td>
+                                        <td><%= data.name %></td>
+                                        <td><%= data.email %></td>
+                                        <td><img src="<%= data.catalogueImage.url %>"></td>  
+                                    </tr>
+                            </table>
+                        </div>
                     </div>   
                 </div>
             </div>

@@ -1,62 +1,96 @@
-
 <%- include('../front/header.ejs') %>
-    
-    
-<section class="banner">
-	<div class="banner-box">
-		<div class="carousel slide" data-bs-ride="carousel" id="services">
 
-			<div class="carousel-indicators slider-indicators">
-				<button type="button" data-bs-target="#services" data-bs-slide-to="0" class="active"></button>
-				<button type="button" data-bs-target="#services" data-bs-slide-to="1" class="active"></button>
-				<button type="button" data-bs-target="#services" data-bs-slide-to="2" class="active"></button>
-			</div><!--carousel-indicators end-->
-  
-			<div class="carousel-inner">
-				<div class="carousel-item active" data-bs-interval="2000">
-					<img src="/assets/images/img3.jpg" class="services-img">
-				</div>0<!--carousel-item end--> 
-  
-				<div class="carousel-item" data-bs-interval="2000">
-					<img src="/assets/images/beckdev.jpg" class="services-img">
-				</div>1<!--carousel-item end--> 
-  
-				<div class="carousel-item" data-bs-interval="2000">
-					<img src="/assets/images/fashion.jpeg" class="services-img">
-				</div>2<!--carousel-item end--> 
-			</div><!--carousel-inner end-->
+	<section class="banner">
+		<div class="banner-box">
+			<div class="container-fluid">
+				<div class="row">
+					<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+							<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+								class="active" aria-current="true" aria-label="Slide 1"></button>
+							<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+								aria-label="Slide 2"></button>
+							<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+								aria-label="Slide 3"></button>
+						</div>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://images.unsplash.com/
+								photo-1480936600919-bffa6b7ecf1e?ixlib=rb-4.0.3&ixid=
+								MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=
+								crop&w=1194&q=80"
+									class="d-block w-100" alt="...">
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class=" fw-bold fs-4">So many books. So little time</h5>
+									<p class=" fw-bold fs-3">Read our blogs and save your precious time</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://images.unsplash.com/
+								photo-1505330622279-bf7d7fc918f4?ixlib=rb-4.0.3&ixid=
+								MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=
+								format&fit=crop&w=1170&q=80" class="d-block w-100" alt="...">
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="fw-bold fs-4">Content is the reason</h5>
+									<p class="fw-bold fs-3">search began in the first place.</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://images.unsplash.com/
+								photo-1478042860560-8e37f14c9335?ixlib=rb-4.0.3&ixid=
+								MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=
+								format&fit=crop&w=1174&q=80"
+									class="d-block w-100" alt="...">
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="fw-bold fs-4">The more I read blogs,</h5>
+									<p class="fs-3 fw-bold">the more I realize how everything fits together.</p>
+								</div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+							data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+							data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-			<a class="carousel-control-prev" type="button" data-bs-target="#services" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-  
-			<a class="carousel-control-next" type="button" data-bs-target="#services" data-bs-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-		</div> <!--carousel slide end-->
-	</div> <!-- banner box end-->
-</section>
 
 
-    <section class="featured-blog mtb-40">
-    	<div class="container">
-    		<div class="row">
+	<section class="featured-blog mtb-40">
+		<h2 class=" mb-5 text-center text-info">Reading is fun-damental</h2>
+		<div class="container">
+			<div class="row">
 
 				<% d.forEach((item)=>{ %>
 
-    			<div class="col-md-4">
-    				<div class="blog-box">
-    					<img src="<%= item.image.url %>" height="290" width="235" alt="blog1" />
-    					<h3><%= item.title %></h3>
-    					<p><%= item.createdAt.toLocaleDateString() %></p>
-    					<p><%= item.description.slice(0,90) %></p>
-    					<a href="/blogdetail/<%= item._id %>" class="btn btn-danger">Read more...</a>
-    				</div>
-    			</div>
+					<div class="col-md-4">
+						<div class="blog-box">
+							<img src="<%= item.image.url %>" height="290" width="235" alt="blog1" />
+							<h3>
+								<%= item.title %>
+							</h3>
+							<p>
+								<%= item.createdAt.toLocaleDateString() %>
+							</p>
+							<p>
+								<%= item.description.slice(0,90) %>
+							</p>
+							<a href="/blogdetail/<%= item._id %>" class="btn btn-danger">Read more...</a>
+						</div>
+					</div>
 
-				<% }) %> <!-- for each loop end -->
-    		</div>
-    	</div>
-    </section>
-    
-<%- include('../front/footer.ejs') %>
+					<% }) %> <!-- for each loop end -->
+			</div>
+		</div>
+	</section>
+
+	<%- include('../front/footer.ejs') %>
