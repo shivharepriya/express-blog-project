@@ -1,0 +1,22 @@
+<%- include('../front/header.ejs') %>
+
+<section class="blog-list mtb-40">
+    <div class="container">
+      <!-- <h1>Blogs</h1> -->
+      <div class="row">
+      <% catalogueL.forEach((catalogueList)=>{ %>
+        <div class="col-md-4">
+          <div class="blog-box">
+            <img src="<%= catalogueList.catalogueImage.url %>" height="200" width="100%" alt="blog1" />
+            <h3><%= catalogueList.title %></h3>
+            <p><%= catalogueList.createdAt.toLocaleDateString() %></p>
+            <p><%= catalogueList.description.slice(0,90) %></p>
+            <a href="/cataloguedetail/<%= catalogueList._id %>" class="btn btn-danger">Read more...</a>
+          </div>
+        </div>
+      <% }) %>
+      </div>
+    </div>
+  </section>
+
+<%- include('../front/footer.ejs') %>

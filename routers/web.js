@@ -15,6 +15,8 @@ router.get('/contact', FrontendController.contact)
 router.get('/blogdetail/:id', FrontendController.blogdetail)
 router.get('/bloglist', FrontendController.bloglist)
 router.get('/login', FrontendController.login)
+router.get('/cataloguelist', FrontendController.Cataloguelist )
+router.get('/cataloguedetail/:id', FrontendController.catalogueDetail)
 
 
 // admin controller route
@@ -44,5 +46,6 @@ router.post('/register', UserController.Register)
 router.post('/verify_login', UserController.VerifyLogin)
 router.get('/logout', UserController.Logout)
 router.post('/sendmessage', UserController.sendMessage);
+
 
 module.exports = router

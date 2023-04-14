@@ -39,6 +39,20 @@ class FrontendController{
         }
     }
 
+    static catalogueDetail = async(req,res)=>{
+        try{
+          // console.log(req.params.id)
+          const category = await CategoryModel.find().sort({_id:-1})
+          //  console.log(category)
+          const recentblog = await BlogModel.find().sort({_id:-1}).limit(4)
+          const cataloguedetail = await CategoryModel.findById(req.params.id)
+          console.log(cataloguedetail)
+          res.render('front/cataloguedetail',{dc:cataloguedetail,c:category,r:recentblog})
+         }catch(err){
+           console.log(err)
+         }
+     }
+
     static bloglist = async(req,res)=>{
         try{
             const bloglist = await BlogModel.find().sort({_id:-1})
@@ -46,8 +60,17 @@ class FrontendController{
             res.render('front/bloglist',{blogL:bloglist})
         }catch(err){
             console.log(err)
-        }
-       
+        } 
+    }
+
+    static Cataloguelist = async(req,res)=>{
+        try{
+            const cataloguelist = await CategoryModel.find().sort({_id:-1})
+            // console.log(cataloguelist)
+            res.render('front/cataloguelist',{catalogueL:cataloguelist})
+        }catch(err){
+            console.log(err)
+        } 
     }
 
     static login = async(req,res)=>{
