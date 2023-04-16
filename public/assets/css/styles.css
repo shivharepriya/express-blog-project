@@ -649,8 +649,12 @@ footer {
     }
 
     .blog-desc :first-child {
-        font-size: 25px;
+        font-size: 1.1rem;
         width: 108%;
+    }
+
+    .blog-left h1 {
+        font-size: 1.3rem;
     }
 
     .categories {
